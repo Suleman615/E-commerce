@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+
+    <!-- FontAwesome 6.2.0 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <!-- Title -->
+    <title>Log in</title>
+</head>
+
+<body>
+    <div class="min-vh-100 d-block d-md-grid bg-image"
+        style="background-image: url('./images/login.jpg'); background-attachment: fixed;">
+        <nav class="navbar  navbar-light justify-content-between   bg-light  bg-opacity-25    px-3 py-2 "
+            style="height: 80px;">
+
+            <a class="navbar-brand  fs-1 brand" href="./index.html">GS</a>
+            <a class="btn btn-outline-info  fw-bold" href="./signup.html">Sign Up</a>
+
+
+
+
+
+        </nav>
+
+        <div class=" justify-content-center m-0  row  w-100">
+            <div class="d-none col-md-5 d-md-flex justify-content-center align-items-center    ">
+                <div class="text-white ">
+                    <p class=" brand fs-1 ">GS</p>
+                    <p class=" fs-4 fw-bold m-0">Gives You The Best Look</p>
+                    <p class="fs-4 fw-bold m-0">Anywhere, Anytime</p>
+                </div>
+
+            </div>
+            <div class="col-11 col-md-4 m-4 bg-light rounded bg-opacity-25 ">
+
+                <!-- log In form -->
+                <form class="py-4 fw-bold mx-0 mx-md-5 ">
+                    <div class="d-flex flex-column align-items-center justify-content-center ">
+                        <p class="lead fw-bold ">Sign in with</p>
+                        <section class="my-2 accordion">
+                            <a type="button" class="btn  btn-floating mx-1">
+                                <i class="fab fa-facebook-f fa-lg"></i>
+                            </a>
+
+                            <a type="button" class="btn  btn-floating mx-1">
+                                <i class="fab fa-google-plus-g fa-lg"></i>
+                            </a>
+
+                            <a type="button" class="btn  btn-floating mx-1">
+                                <i class="fab fa-twitter fa-lg"></i>
+                            </a>
+
+                            <a type="button" class="btn  btn-floating mx-1">
+                                <i class="fab fa-linkedin-in fa-lg"></i>
+                            </a>
+                        </section>
+                    </div>
+
+                    <!-- <div class="divider d-flex align-items-center my-4"> -->
+                    <p class="text-center my-3 fw-bold ">Or</p>
+
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4 ">
+                        <label class="form-label" for="form3Example3">Email address</label>
+                        <input type="email" id="form3Example3" class="form-control bg-light"
+                            placeholder="Enter a valid email address" />
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3 ">
+                        <label class="form-label" for="form3Example4">Password</label>
+                        <input type="password" id="form3Example4" class="form-control bg-light"
+                            placeholder="Enter password" />
+                    </div>
+
+                    <div class="d-flex justify-content-around align-items-center">
+                        <!-- Checkbox -->
+                        <div class="form-check mb-0">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                            <label class="form-check-label " for="form2Example3">
+                                Remember me
+                            </label>
+                        </div>
+                        <a href="#!" class="text-body ">Forgot password?</a>
+                    </div>
+
+                    <div class="text-center  mt-2 pt-2">
+                        <button type="button" class="btn btn-outline-info px-4 btn-lg fw-bold">Login</button>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="./signup.html"
+                                class="link-primary">Register</a></p>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Key Importance -->
+    <div class=" bg-light d-none d-md-flex justify-content-center py-5 ">
+        <div class="py-5 mx-2 d-flex flex-column align-items-center justify-content-center" style="min-width: 20%;;">
+            <i class=" fas  fa-earth fa-4x"></i>
+            <p class="fs-4 my-4 fw-bold">Worldwide Shipping</p>
+            <p class="px-3 text-center">It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+        </div>
+        <div class="py-5 mx-2 d-flex flex-column align-items-center justify-content-center" style="min-width: 20%;;">
+            <i class="fas fa-chess-queen fa-4x"></i>
+            <p class="fs-4 my-4 fw-bold">Best Quality</p>
+            <p class="px-3 text-center">It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+        </div>
+        <div class="py-5 mx-2 d-flex flex-column align-items-center justify-content-center" style="min-width: 20%;;">
+            <i class="fas fa-tags fa-4x"></i>
+            <p class="fs-4 my-4 fw-bold">Best Offers</p>
+            <p class="px-3 text-center">It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+        </div>
+        <div class="py-5 mx-2 d-flex flex-column align-items-center justify-content-center" style="min-width: 20%;;">
+            <i class="fas fa-lock fa-4x"></i>
+            <p class="fs-4 my-4 fw-bold">Secure Payments</p>
+            <p class="px-3 text-center">It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+        </div>
+    </div>
+
+    <hr class="m-0">
+    <a class="ms-0 ms-md-5 my-4 fs-5 fw-bold btn">SALE UP TO 70% OFF FOR ALL CLOTHES & FASHION ITEMS, ON ALL BRANDS.</a>
+    <hr class="m-0">
+    <!-- Last section -->
+    <div class="container d-block d-md-flex pt-5 my-3 ">
+        <div class="mx-2 my-2 ms-5 ms-md-0 " style="min-width: 30%;">
+            <p class="brand fs-1 ">GS</p>
+            <p class="fs-4 fw-bold m-0">Gives You The Best Look</p>
+            <p class="fs-4 fw-bold m-0">Anywhere, Anytime</p>
+        </div>
+        <div class="mx-2  d-flex my-4 ms-5 ms-md-0 flex-column align-items-start " style="min-width: 20%;">
+            <p class="fs-5 mb-4 fw-bold">FOR HER</p>
+            <p class="btn p-0 m-0 border-0 ">Women Jeans</p>
+            <p class="btn p-0 m-0 border-0">Tops and Shirts</p>
+            <p class="btn p-0 m-0 border-0">Women Jackets</p>
+            <p class="btn p-0 m-0 border-0">Heels and Flats</p>
+            <p class="btn p-0 m-0 border-0">Women Accessories</p>
+
+        </div>
+        <div class="mx-2 d-flex my-4 ms-5 ms-md-0 flex-column align-items-start " style="min-width: 20%;">
+            <p class="fs-5 mb-4 fw-bold">FOR HIM</p>
+            <p class="btn p-0 m-0 border-0 ">Men Jeans</p>
+            <p class="btn p-0 m-0 border-0">Men Shirts</p>
+            <p class="btn p-0 m-0 border-0">Men Jackets</p>
+            <p class="btn p-0 m-0 border-0">Men Shoes</p>
+            <p class="btn p-0 m-0 border-0">Men Accessories</p>
+        </div>
+        <div class="mx-2 pe-0 pe-md-5 my-4 ms-5 ms-md-0" style="min-width: 30%;">
+            <p class="fs-5 mb-4 fw-bold">Subscribe</p>
+            <form>
+                <input class="form-control my-3  me-5 py-2" type="search" placeholder="Your email address..."
+                    aria-label="Search">
+                <button class="btn btn-outline-primary" type="submit">Subscribe</button>
+            </form>
+
+        </div>
+
+    </div>
+    <!-- Footer -->
+    <footer class="d-flex flex-wrap justify-content-between  align-items-center py-1 my-1 ps-2 px-md-2 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="./index.html" class=" me-2 mb-md-0  text-decoration-none brand fs-1 text-dark">GS
+            </a>
+            <span class="text-muted mt-2">© 2023,Powered by <span class="fw-bold fst-italic">GS Brands</span></span>
+        </div>
+
+        <ul class="nav d-none d-md-flex me-3 col-md-4 pe-0 pe-md-5 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-google-plus-g fa-lg"></i></a></li>
+
+        </ul>
+    </footer>
+
+
+
+    <!-- Font Awesome -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+        integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

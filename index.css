@@ -1,0 +1,27 @@
+.brand {
+  font-family: Tektur, cursive;
+  font-weight: 900;
+  font-style: italic;
+}
+
+
+.bg-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+.ordersincart {
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  position: absolute;
+  right: 4px;
+  top: 0%;
+
+}

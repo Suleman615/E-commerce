@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+
+    <!-- FontAwesome 6.2.0 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <title>ABOUT</title>
+</head>
+
+<body style="overflow-x: hidden;" id="body">
+
+    <!-- Button to top -->
+    <a class="bottom-0 end-0  rounded p-2 btn-outline-secondary   position-fixed " href="#body"><i
+            class=" fa-2x fas m-3 m-md-0 fa-arrow-up"></i>
+    </a>
+
+    <!-- Shopping cart in mobile view -->
+    <a class=" fw-bold d-block d-md-none position-fixed " style="top: 70px ;right:10px;" data-bs-toggle="offcanvas"
+        onClick='updateCartDisplay()' data-bs-target="#shoppingcart" aria-controls="shoppingcart">
+        <i class="fas  fa-shopping-bag mx-3  fa-lg " style="color: #20c8e6; "></i>
+        <span class="ordersincart  border border-1" id="cartnumber1">0</span>
+    </a>
+
+    <div class="conatiner bg-image min-vh-100  p-0 w-100 d-flex flex-column "
+        style=" background-image: url('./images/about.jpg'); background-attachment: fixed;">
+
+        <!-- NAV BAR -->
+        <nav class="navbar navbar-expand-lg navbar-light   bg-secondary  bg-opacity-25    p-0 py-2 ">
+            <div class="container-fluid bg-opacity-50">
+                <a class="navbar-brand fs-1 brand" href="./index.html">GS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ">
+                        <div class="navbar-nav  ">
+                            <a class="nav-link fw-bold d-block d-md-none  " href="./login.html"><i
+                                    class="fas fa-user fa-lg" style="color: #ffffff;"></i>
+                            </a>
+                            <a class="nav-link fw-bold " aria-current="page" href="./all.html">EVERYTHING</a>
+                            <a class="nav-link fw-bold " href="./women.html">WOMEN</a>
+                            <a class="nav-link fw-bold " href="./men.html">MEN</a>
+                            <a class="nav-link fw-bold " href="./accessories.html">ACCESSORIES</a>
+                        </div>
+
+                    </div>
+                    <div class="navbar-nav ">
+                        <a class="nav-link  fw-bold " href="./about.html">ABOUT</a>
+                        <a class="nav-link fw-bold " href="./contact.html">CONTACT US</a>
+                        <a class="nav-link fw-bold d-none d-md-block position-relative cursor-pointer "
+                            onClick='updateCartDisplay()' data-bs-toggle="offcanvas" data-bs-target="#shoppingcart"
+                            aria-controls="shoppingcart">
+                            <i class="fas  fa-shopping-bag mx-2   fa-lg " style="color: #ffffff;"></i>
+                            <span class="ordersincart " id="cartnumber">0</span>
+                        </a>
+                        <a class="nav-link fw-bold d-none d-md-block  " href="./login.html"><i class="fas fa-user fa-lg"
+                                style="color: #ffffff;"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </nav>
+
+        <div class="container-fluid d-flex justify-content-center  align-items-center" style="height: 40vh;">
+            <h1 class="fw-bold text-white text-center" style="font-size: 60px;">ABOUT US</h1>
+        </div>
+
+        <div class="d-grid  bg-light px-md-0 px-5 ">
+
+            <div class="mx-md-5 row bg-light d-flex bg-white my-5  justify-content-center   ">
+                <div class="col-11  col-md-5 p-5  flex-grow-1 ">
+                    <hr class=" opacity-100 text-primary bg-primary " style="width: 70px; height: 4px;">
+                    <h1>Who We Are</h1>
+                    <p class="pe-0 pe-md-5 my-4 lh-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+                        tellus, luctus nec ullamcorper
+                        mattis, pulvinar dapibus leo. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non
+                        mauris vitae erat consequat auctor eu in elit.</p>
+                </div>
+                <div class="col-11   col-md-5 flex-grow-1 bg-image "
+                    style="background-image: url('./images/about.jpg') ; min-height: 300px;"></div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Shopping Cart -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-backdrop="false" data-bs-scroll="true" id="shoppingcart"
+        aria-labelledby="shoppingcartLabel">
+        <div class="offcanvas-header border-bottom py-0">
+            <h5 id="shoppingcartLabel">Shopping Cart</h5>
+            <p class="border-1  mt-3">$ <span class="fw-bold" id="totalamount"></span></p>
+            <button type="button" class="btn-close" onClick="EmptyCart()" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <div id="cart-items" style="padding: 0px  !important;"> </div>
+        </div>
+        <a class="btn btn-outline-info m-1 fw-bold ">Proceed</a>
+
+    </div>
+
+    <!-- OUR TEAM -->
+    <div class="min-vh-100 py-5">
+        <div class="container">
+            <div class=" d-flex flex-column justify-content-center m-5  px-0 px-md-5 align-items-center ">
+                <hr class=" opacity-100 text-primary bg-primary " style="width: 80px; height: 4px;">
+                <p class="text-center fs-4 fw-bold">A Few Words About</p>
+                <h1 class="fw-bold">Our Team</h1>
+                <p class="text-center mx-0 mx-md-5 px-0 px-md-4">Nam nec tellus a odio tincidunt auctor a ornare odio.
+                    Sed non mauris
+                    vitae erat consequat auctor eu in
+                    elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+            </div>
+            <div class="d-flex flex-column flex-md-row mt-2 mx-5 px-5 justify-content-center align-items-center">
+                <div class="bg-light rounded  m-2 d-flex flex-column justify-content-center align-items-center"
+                    style="height: 250px; width: 250px;">
+                    <img class="rounded-circle h-50 w-50" src="./images/CEO.jpg" alt="">
+                    <p class="mt-4 mb-0 fs-5 fw-bold">Abdul Rafay</p>
+                    <p class="m-0">Founder-CEO</p>
+                </div>
+                <div class="bg-light rounded  m-2 d-flex flex-column justify-content-center align-items-center"
+                    style="height: 250px; width: 250px;">
+                    <img class="rounded-circle h-50 w-50" src="./images/Profile.jpg" alt="">
+                    <p class="mt-4 mb-0 fs-5 fw-bold">Ghulam Suleman</p>
+                    <p class="m-0">COO</p>
+                </div>
+                <div class="bg-light rounded  m-2 d-flex flex-column justify-content-center align-items-center"
+                    style="height: 250px; width: 250px;">
+                    <img class="rounded-circle h-50 w-50" src="./images/Marketing Lead.jpeg" alt="">
+                    <p class="mt-4 mb-0 fs-5 fw-bold">Farhan Afzal</p>
+                    <p class="m-0">Marketing Head</p>
+                </div>
+
+            </div>
+            <div class="d-flex flex-column flex-md-row mx-5 px-5 justify-content-center align-items-center">
+                <div class="bg-light rounded  m-2 d-flex flex-column justify-content-center align-items-center"
+                    style="height: 250px; width: 250px;">
+                    <img class="rounded-circle h-50 w-50" src="./images/Developer.jpg" alt="">
+                    <p class="mt-4 mb-0 fs-5 fw-bold">Sain Bux</p>
+                    <p class="m-0">Lead Developer</p>
+                </div>
+                <div class="bg-light rounded  m-2 d-flex flex-column justify-content-center align-items-center"
+                    style="height: 250px; width: 250px;">
+                    <img class="rounded-circle h-50 w-50" src="./images/Design.jpeg" alt="">
+                    <p class="mt-4 mb-0 fs-5 fw-bold">Bilal Khan</p>
+                    <p class="m-0">Lead Designer</p>
+                </div>
+                <div class="bg-light rounded  m-2 d-flex flex-column justify-content-center align-items-center"
+                    style="height: 250px; width: 250px;">
+                    <img class="rounded-circle h-50 w-50" src="./images/HR.jpeg" alt="">
+                    <p class="mt-4 mb-0 fs-5 fw-bold">UnKnown</p>
+                    <p class="m-0">HR</p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+    <div class="min-vh-100 bg-image"
+        style="background-image: url('./images/Limited-time.jpg'); background-attachment: fixed;">
+
+        <div class="d-flex justify-content-center align-items-center">
+
+            <div class="col-11 col-md-4  bg-light py-4 py-md-5 my-5 my-md-0 ">
+                <div class="d-flex my-0 py-0 py-md-3 my-md-5 flex-column justify-content-center align-items-center">
+                    <hr class=" opacity-100 text-primary bg-primary " style="width: 80px; height: 4px;">
+                    <h1 class="text-center py-2  fw-bold ">Follow Us</h1>
+                    <div class=" py-4 d-flex w-100 justify-content-around px-5 mx-5">
+                        <a class="text-muted" href="#"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a class="text-muted" href="#"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a class="text-muted" href="#"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a class="text-muted" href="#"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Key Importance -->
+        <div class=" bg-white d-block d-md-flex justify-content-center py-5 ">
+            <div class="py-5 mx-2 d-flex flex-column align-items-center justify-content-center"
+                style="min-width: 20%;;">
+                <i class=" fas  fa-earth fa-4x"></i>
+                <p class="fs-4 my-4 fw-bold">Worldwide Shipping</p>
+                <p class="px-3 text-center">It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+            </div>
+            <div class="py-5 mx-2 d-flex flex-column align-items-center justify-content-center"
+                style="min-width: 20%;;">
+                <i class="fas fa-chess-queen fa-4x"></i>
+                <p class="fs-4 my-4 fw-bold">Best Quality</p>
+                <p class="px-3 text-center">It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+            </div>
+            <div class="py-5 mx-2 d-flex flex-column align-items-center justify-content-center"
+                style="min-width: 20%;;">
+                <i class="fas fa-tags fa-4x"></i>
+                <p class="fs-4 my-4 fw-bold">Best Offers</p>
+                <p class="px-3 text-center">It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+            </div>
+            <div class="py-5 mx-2 d-flex flex-column align-items-center justify-content-center"
+                style="min-width: 20%;;">
+                <i class="fas fa-lock fa-4x"></i>
+                <p class="fs-4 my-4 fw-bold">Secure Payments</p>
+                <p class="px-3 text-center">It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <hr class="m-0">
+    <a class="ms-0 ms-md-5 my-4 fs-5 fw-bold btn">SALE UP TO 70% OFF FOR ALL CLOTHES & FASHION ITEMS, ON ALL BRANDS.</a>
+    <hr class="m-0">
+    <!-- Last section -->
+    <div class="container d-block d-md-flex pt-5 my-3 ">
+        <div class="mx-2 my-2 ms-5 ms-md-0 " style="min-width: 30%;">
+            <p class="brand fs-1 ">GS</p>
+            <p class="fs-4 fw-bold m-0">Gives You The Best Look</p>
+            <p class="fs-4 fw-bold m-0">Anywhere, Anytime</p>
+        </div>
+        <div class="mx-2  d-flex my-4 ms-5 ms-md-0 flex-column align-items-start " style="min-width: 20%;">
+            <p class="fs-5 mb-4 fw-bold">FOR HER</p>
+            <p class="btn p-0 m-0 border-0 ">Women Jeans</p>
+            <p class="btn p-0 m-0 border-0">Tops and Shirts</p>
+            <p class="btn p-0 m-0 border-0">Women Jackets</p>
+            <p class="btn p-0 m-0 border-0">Heels and Flats</p>
+            <p class="btn p-0 m-0 border-0">Women Accessories</p>
+
+        </div>
+        <div class="mx-2 d-flex my-4 ms-5 ms-md-0 flex-column align-items-start " style="min-width: 20%;">
+            <p class="fs-5 mb-4 fw-bold">FOR HIM</p>
+            <p class="btn p-0 m-0 border-0 ">Men Jeans</p>
+            <p class="btn p-0 m-0 border-0">Men Shirts</p>
+            <p class="btn p-0 m-0 border-0">Men Jackets</p>
+            <p class="btn p-0 m-0 border-0">Men Shoes</p>
+            <p class="btn p-0 m-0 border-0">Men Accessories</p>
+        </div>
+        <div class="mx-2 pe-0 pe-md-5 my-4 ms-5 ms-md-0" style="min-width: 30%;">
+            <p class="fs-5 mb-4 fw-bold">Subscribe</p>
+            <form>
+                <input class="form-control my-3  me-5 py-2" type="search" placeholder="Your email address..."
+                    aria-label="Search">
+                <button class="btn btn-outline-primary" type="submit">Subscribe</button>
+            </form>
+
+        </div>
+
+    </div>
+    <!-- Footer -->
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-1 my-1 ps-2 px-md-2 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0  text-decoration-none brand fs-1 text-dark">GS
+            </a>
+            <span class="text-muted mt-2">© 2023,Powered by <span class="fw-bold fst-italic">GS Brands</span></span>
+        </div>
+
+        <ul class="nav me-3 col-md-4 pe-0 pe-md-5 d-none d-md-flex justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-google-plus-g fa-lg"></i></a></li>
+
+        </ul>
+    </footer>
+
+    <script src="./js files/general.js"></script>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+        integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
