@@ -19,10 +19,9 @@ function search(SRC) {
     method: "GET",
     datatype: "json",
     success: function (data) {
-      for (let i = 0; i < 5; i++) {
-        for (i = 0; i < 5; i++) {
-          const el = `<div class="m-2 bg-light h-auto  " style=" width: 235px;">
-          <div class="bg-image   w-100 p-2 pt-3"
+      for (i = 0; i < 5; i++) {
+        const el = `<div class="m-2 bg-light h-auto rounded border " style=" width: 235px;">
+          <div class="bg-image rounded-top   w-100 p-2 pt-3"
               style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
               <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
           </div>
@@ -36,12 +35,12 @@ function search(SRC) {
            </div>
        </div>`;
 
-          createelement(el, "cardsFirstRow");
-        }
+        createelement(el, "cardsFirstRow");
+      }
 
-        for (i = 5; i < 10; i++) {
-          const ele = `<div class="m-2 bg-light h-auto  " style=" width: 235px;">
-          <div class="bg-image   w-100 p-2 pt-3"
+      for (i = 5; i < 10; i++) {
+        const ele = `<div class="m-2 bg-light h-auto rounded border " style=" width: 235px;">
+          <div class="bg-image rounded-top  w-100 p-2 pt-3"
               style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
               <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
           </div>
@@ -55,9 +54,9 @@ function search(SRC) {
            </div>
        </div>`;
 
-          createelement(ele, "cardsSecondRow");
-        }
+        createelement(ele, "cardsSecondRow");
       }
+
     },
     error: function (error) {
       console.log("error is = " + error);

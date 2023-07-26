@@ -23,14 +23,11 @@ function search(SRC, frag) {
         method: 'GET',
         datatype: 'json',
         success: function (data) {
-            for (let i = 0; i < 5; i++) {
+            // men watches
+            for (i = 0; i < 5; i++) {
 
-                for (i = 0; i < 5; i++) {
-
-
-
-                    const el = `<div class="m-3 bg-light h-auto  border " style=" width: 235px;">
-                    <div class="bg-image   w-100 p-2 pt-3"
+                const el = `<div class="m-3 bg-light h-auto  rounded border " style=" width: 235px;">
+                    <div class="bg-image rounded-top   w-100 p-2 pt-3"
                     style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
                     <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
                     </div>
@@ -45,15 +42,17 @@ function search(SRC, frag) {
                   
                         `;
 
-                    createelement(el, "menwatches");
+                createelement(el, "menwatches");
 
-                }
-
-                for (i = 5; i < 10; i++) {
+            }
 
 
-                    const ele = `<div class="m-3 bg-light h-auto border-2 border-dark  " style=" width:235px ;">
-                            <div class="bg-image   w-100 p-2 pt-3"
+            // women watches
+            for (i = 5; i < 10; i++) {
+
+
+                const ele = `<div class="m-3 bg-light h-auto border rounded " style=" width:235px ;">
+                            <div class="bg-image rounded-top  w-100 p-2 pt-3"
                             style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
                             <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
                             </div>
@@ -68,15 +67,17 @@ function search(SRC, frag) {
                   
                         `;
 
-                    createelement(ele, "womenwatches");
+                createelement(ele, "womenwatches");
 
-                }
-
-                for (i = 10; i < 15; i++) {
+            }
 
 
-                    const ele = `<div class="m-3 bg-light h-auto border-2 border-dark  " style=" width:235px ;">
-                            <div class="bg-image   w-100 p-2 pt-3"
+            // women bags
+            for (i = 10; i < 15; i++) {
+
+
+                const ele = `<div class="m-3 bg-light h-auto border rounded  " style=" width:235px ;">
+                            <div class="bg-image rounded-top   w-100 p-2 pt-3"
                             style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
                             <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
                             </div>
@@ -90,16 +91,15 @@ function search(SRC, frag) {
                   
                         `;
 
-                    createelement(ele, "womenbags");
+                createelement(ele, "womenbags");
 
-                }
             }
 
+            // women jewellery
             for (i = 15; i < 20; i++) {
 
-
-                const ele = `<div class="m-3 bg-light h-auto border-2 border-dark  " style=" width:235px ;">
-                        <div class="bg-image   w-100 p-2 pt-3"
+                const ele = `<div class="m-3 bg-light h-auto border rounded  " style=" width:235px ;">
+                        <div class="bg-image rounded-top   w-100 p-2 pt-3"
                         style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
                         <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
                         </div>
@@ -118,11 +118,13 @@ function search(SRC, frag) {
                 createelement(ele, "jewellery");
 
             }
+
+            // men sunglasses
             for (i = 20; i < 25; i++) {
 
 
-                const ele = `<div class="m-3 bg-light h-auto border-2 border-dark  " style=" width:235px ;">
-                        <div class="bg-image   w-100 p-2 pt-3"
+                const ele = `<div class="m-3 bg-light h-auto border rounded  " style=" width:235px ;">
+                        <div class="bg-image rounded-top  w-100 p-2 pt-3"
                         style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
                         <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
                         </div>
@@ -157,13 +159,11 @@ function search(SRC, frag) {
         method: 'GET',
         datatype: 'json',
         success: function (data) {
-            for (let i = 0; i < 5; i++) {
 
-                for (i = 0; i < 5; i++) {
-
+            for (i = 0; i < 5; i++) {
 
 
-                    const el = `<div class="my-4 ms-2  d-flex w-100" style="height: 140px ;">
+                const el = `<div class="my-4 ms-2  d-flex w-100" style="height: 140px ;">
                     <img class="bg-image w-25 h-100 " src="${data.products[i].thumbnail}" alt="">
                     <span class="ms-2 py-1 ">
                       <p class="fw-bold m-0 fs-5  text-wrap">${data.products[i].title}</p>
@@ -175,12 +175,12 @@ function search(SRC, frag) {
                   
                         `;
 
-                    createelement(el, "newarrivals");
-
-                }
-
+                createelement(el, "newarrivals");
 
             }
+
+
+
 
         },
         error: function (error) {
