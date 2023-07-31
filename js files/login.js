@@ -30,7 +30,13 @@ function signIn() {
 
             if (data.users[0].email === mail && data.users[0].username === userName && data.users[0].password === passWord) {
                 // Handle the successful response here
-                window.location('./login.html')
+
+            } else {
+                var ele = `<div class="alert alert-warning m-0 mx-2 alert-dismissible fade show" role="alert">
+                <strong>Warning</strong> Check Your Credentials  and try again
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>`
+                createelement(ele, "alert");
             }
 
         })
