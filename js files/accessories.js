@@ -3,6 +3,10 @@ let cartItems = [];
 document.addEventListener("DOMContentLoaded", function () {
     const cartList = localStorage.getItem("cart-bz")
     cartItems = JSON.parse(cartList);
+    if (!cartItems) {
+        localStorage.setItem("cart-bz", JSON.stringify([]));
+        cartItems = [];
+    }
     document.getElementById('cartnumber').innerText = cartItems.length
     document.getElementById('cartnumber1').innerText = cartItems.length
     updateTotal()

@@ -168,7 +168,6 @@ function updateTotal() {
 
   for (const obj of cartItems) {
     total += (obj.saleprice * obj.quantity);
-    console.log("total is " + total)
 
   }
   document.getElementById('totalamount').innerText = total
