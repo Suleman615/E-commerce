@@ -12,30 +12,118 @@ document.addEventListener("DOMContentLoaded", function () {
     updateTotal()
 
 
-    search(link, fragrances)
+    search(menWatches, womenWatches,menGlasses, fragrances)
 });
 
 
-var link = 'https://dummyjson.com/products?limit=25&skip=60&select=title,price,thumbnail,rating,brand'
+var menWatches = 'https://dummyjson.com/products?limit=5&skip=92&select=title,price,thumbnail,rating,brand'
+var womenWatches = 'https://dummyjson.com/products?limit=23&skip=171&select=title,price,thumbnail,rating,brand'
+var menGlasses = 'https://dummyjson.com/products?limit=5&skip=153&select=title,price,thumbnail,rating,brand'
 
-var fragrances = 'https://dummyjson.com/products?limit=5&skip=10&select=title,thumbnail,rating,brand'
+var fragrances = 'https://dummyjson.com/products?limit=5&skip=5&select=title,thumbnail,rating,brand'
 
-function search(SRC, frag) {
+function search(menW, womwnW,menG, frag) {
 
+
+    // Men Watches 
     $.ajax({
-        url: SRC,
+
+        url: menW,
         method: 'GET',
         datatype: 'json',
         success: function (data) {
-            // men watches
             for (i = 0; i < 5; i++) {
+
+                const el = `<div class="m-3 bg-light h-auto  rounded border " style=" width: 235px;">
+                        <div class="bg-image rounded-top   w-100 p-2 pt-3"
+                        style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+                        <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                        </div>
+                                
+                              <div class="d-flex flex-column justify-content-center align-items-center ">
+                                <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+                                <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+                                <p class="text-center fs-6 m-0 fw-bold">$${data.products[i].price}</p>
+                                <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
+                              </div>
+                            </div>
+                      
+                            `;
+
+                createelement(el, "menwatches");
+
+            }
+        }
+    })
+
+
+    // women  
+    $.ajax({
+
+        url: womwnW,
+        method: 'GET',
+        datatype: 'json',
+        success: function (data) {
+
+// Women bags 
+            for (i = 0; i < 5; i++) {
+
+
+                const ele = `<div class="m-3 bg-light h-auto border rounded " style=" width:235px ;">
+                        <div class="bg-image rounded-top  w-100 p-2 pt-3"
+                        style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+                        <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center align-items-center  ">
+
+                          <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+                          <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+                          <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
+                          <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
+                          </div>
+                      </div>
+              
+                    `;
+
+                createelement(ele, "womenbags");
+
+            }
+
+
+            // women-dresses 
+            for (i = 5; i < 10; i++) {
+
+
+                const ele = `<div class="m-3 bg-light h-auto border rounded " style=" width:235px ;">
+                        <div class="bg-image rounded-top  w-100 p-2 pt-3"
+                        style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+                        <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center align-items-center  ">
+
+                          <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+                          <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+                          <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
+                          <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
+                          </div>
+                      </div>
+              
+                    `;
+
+                createelement(ele, "womenDresses");
+
+            }
+
+
+            // women watches 
+             for (i = 19; i < 23; i++) {
 
                 const el = `<div class="m-3 bg-light h-auto  rounded border " style=" width: 235px;">
                     <div class="bg-image rounded-top   w-100 p-2 pt-3"
                     style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
                     <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
                     </div>
-                            
+
                           <div class="d-flex flex-column justify-content-center align-items-center ">
                             <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
                             <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
@@ -43,88 +131,51 @@ function search(SRC, frag) {
                             <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
                           </div>
                         </div>
-                  
+
                         `;
 
-                createelement(el, "menwatches");
+                createelement(el,"womenwatches");
 
             }
 
+            for (i = 13; i < 18; i++) {
 
-            // women watches
-            for (i = 5; i < 10; i++) {
+                const el = `<div class="m-3 bg-light h-auto  rounded border " style=" width: 235px;">
+                    <div class="bg-image rounded-top   w-100 p-2 pt-3"
+                    style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+                    <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                    </div>
 
-
-                const ele = `<div class="m-3 bg-light h-auto border rounded " style=" width:235px ;">
-                            <div class="bg-image rounded-top  w-100 p-2 pt-3"
-                            style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
-                            <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center align-items-center  ">
-  
-                              <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                              <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
-                              <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
-                              <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
-                              </div>
+                          <div class="d-flex flex-column justify-content-center align-items-center ">
+                            <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+                            <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+                            <p class="text-center fs-6 m-0 fw-bold">$${data.products[i].price}</p>
+                            <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
                           </div>
-                  
-                        `;
-
-                createelement(ele, "womenwatches");
-
-            }
-
-
-            // women bags
-            for (i = 10; i < 15; i++) {
-
-
-                const ele = `<div class="m-3 bg-light h-auto border rounded  " style=" width:235px ;">
-                            <div class="bg-image rounded-top   w-100 p-2 pt-3"
-                            style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
-                            <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center align-items-center  ">
-                              <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                              <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
-                              <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
-                              <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
-                              </div>
-                          </div>
-                  
-                        `;
-
-                createelement(ele, "womenbags");
-
-            }
-
-            // women jewellery
-            for (i = 15; i < 20; i++) {
-
-                const ele = `<div class="m-3 bg-light h-auto border rounded  " style=" width:235px ;">
-                        <div class="bg-image rounded-top   w-100 p-2 pt-3"
-                        style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
-                        <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
                         </div>
-                        <div class="d-flex flex-column justify-content-center align-items-center  ">
-                        <span class=" rounded-circle bg-info text-center lh-1 pt-2 fw-bold" style="margin-top: -25px; height: 50px ; width: 50px;">25% OFF </span>
 
-                          <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                          <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
-                          <p class="text-center fs-6 m-0 fw-bold">$ <span class="fw-normal   text-decoration-line-through">${data.products[i].price}</span> ${(data.products[i].price - (data.products[i].price * .25))}</p>
-                          <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
-                          </div>
-                      </div>
-              
-                    `;
+                        `;
 
-                createelement(ele, "jewellery");
+                createelement(el, "womenShoes");
 
             }
+        }
 
+
+    })
+
+
+
+
+    $.ajax({
+
+
+        url: menG,
+        method: 'GET',
+        datatype: 'json',
+        success: function (data) {
             // men sunglasses
-            for (i = 20; i < 25; i++) {
+            for (i = 0; i < 5; i++) {
 
 
                 const ele = `<div class="m-3 bg-light h-auto border rounded  " style=" width:235px ;">
@@ -180,13 +231,10 @@ function search(SRC, frag) {
                         `;
 
                 createelement(el, "newarrivals");
-
             }
-
-
-
-
         },
+
+
         error: function (error) {
             console.log("error is = " + error)
         }
