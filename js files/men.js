@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-var link = 'https://dummyjson.com/products?limit=10&skip=50&select=title,price,thumbnail,rating,brand'
+var link = 'https://dummyjson.com/products?limit=10&skip=82&select=title,price,thumbnail,rating,brand'
 
-var fragrances = 'https://dummyjson.com/products?limit=5&skip=10&select=title,thumbnail,rating,brand'
+var fragrances = 'https://dummyjson.com/products?limit=5&skip=5&select=title,thumbnail,rating,brand'
 
 function search(SRC, frag) {
 

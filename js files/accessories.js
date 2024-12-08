@@ -12,17 +12,19 @@ document.addEventListener("DOMContentLoaded", function () {
     updateTotal()
 
 
-    search(menWatches, womenWatches,menGlasses, fragrances)
+    search(menWatches, women, menGlasses, kitchen, sport, mobile, fragrances)
 });
 
 
 var menWatches = 'https://dummyjson.com/products?limit=5&skip=92&select=title,price,thumbnail,rating,brand'
-var womenWatches = 'https://dummyjson.com/products?limit=23&skip=171&select=title,price,thumbnail,rating,brand'
+var women = 'https://dummyjson.com/products?limit=23&skip=171&select=title,price,thumbnail,rating,brand'
 var menGlasses = 'https://dummyjson.com/products?limit=5&skip=153&select=title,price,thumbnail,rating,brand'
-
+var kitchen = 'https://dummyjson.com/products?limit=30&skip=47&select=title,price,thumbnail,rating,brand'
+var sport = 'https://dummyjson.com/products?limit=17&skip=136&select=title,price,thumbnail,rating,brand'
+var mobile = 'https://dummyjson.com/products?limit=14&skip=98&select=title,price,thumbnail,rating,brand'
 var fragrances = 'https://dummyjson.com/products?limit=5&skip=5&select=title,thumbnail,rating,brand'
 
-function search(menW, womwnW,menG, frag) {
+function search(menW, womwnW, menG, kitchenA, sportA, mobileA, frag) {
 
 
     // Men Watches 
@@ -42,7 +44,7 @@ function search(menW, womwnW,menG, frag) {
                                 
                               <div class="d-flex flex-column justify-content-center align-items-center ">
                                 <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                                <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+                                <p class="text-center  fs-5 m-0 fst-italic">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
                                 <p class="text-center fs-6 m-0 fw-bold">$${data.products[i].price}</p>
                                 <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
                               </div>
@@ -56,6 +58,100 @@ function search(menW, womwnW,menG, frag) {
         }
     })
 
+    // Kitche Accessories
+    $.ajax({
+
+        url: kitchenA,
+        method: 'GET',
+        datatype: 'json',
+        success: function (data) {
+            for (i = 0; i < 30; i++) {
+
+                const el = `<div class="m-3 bg-light h-auto  rounded border " style=" width: 235px;">
+                        <div class="bg-image rounded-top   w-100 p-2 pt-3"
+                        style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+                        <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                        </div>
+                                
+                              <div class="d-flex flex-column justify-content-center align-items-center ">
+                                <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+                                <p class="text-center  fs-5 m-0 fst-italic">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
+                                <p class="text-center fs-6 m-0 fw-bold">$${data.products[i].price}</p>
+                                <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
+                              </div>
+                            </div>
+                      
+                            `;
+
+                createelement(el, "kitchen");
+
+            }
+        }
+    })
+
+
+    // Sports Accessories
+    $.ajax({
+
+        url: sportA,
+        method: 'GET',
+        datatype: 'json',
+        success: function (data) {
+            for (i = 0; i < 17; i++) {
+
+                const el = `<div class="m-3 bg-light h-auto  rounded border " style=" width: 235px;">
+                        <div class="bg-image rounded-top   w-100 p-2 pt-3"
+                        style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+                        <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                        </div>
+                                
+                              <div class="d-flex flex-column justify-content-center align-items-center ">
+                                <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+                                <p class="text-center  fs-5 m-0 fst-italic">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
+                                <p class="text-center fs-6 m-0 fw-bold">$${data.products[i].price}</p>
+                                <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
+                              </div>
+                            </div>
+                      
+                            `;
+
+                createelement(el, "sports");
+
+            }
+        }
+    })
+
+
+    // mobile Accessories
+    $.ajax({
+
+        url: mobileA,
+        method: 'GET',
+        datatype: 'json',
+        success: function (data) {
+            for (i = 0; i < 14; i++) {
+
+                const el = `<div class="m-3 bg-light h-auto  rounded border " style=" width: 235px;">
+                        <div class="bg-image rounded-top   w-100 p-2 pt-3"
+                        style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+                        <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                        </div>
+                                
+                              <div class="d-flex flex-column justify-content-center align-items-center ">
+                                <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+                                <p class="text-center  fs-5 m-0 fst-italic">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
+                                <p class="text-center fs-6 m-0 fw-bold">$${data.products[i].price}</p>
+                                <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
+                              </div>
+                            </div>
+                      
+                            `;
+
+                createelement(el, "mobile");
+
+            }
+        }
+    })
 
     // women  
     $.ajax({
@@ -65,7 +161,7 @@ function search(menW, womwnW,menG, frag) {
         datatype: 'json',
         success: function (data) {
 
-// Women bags 
+            // Women bags 
             for (i = 0; i < 5; i++) {
 
 
@@ -77,7 +173,7 @@ function search(menW, womwnW,menG, frag) {
                         <div class="d-flex flex-column justify-content-center align-items-center  ">
 
                           <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                          <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+                          <p class="text-center  fs-5 m-0 fst-italic">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
                           <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
                           <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
                           </div>
@@ -102,7 +198,7 @@ function search(menW, womwnW,menG, frag) {
                         <div class="d-flex flex-column justify-content-center align-items-center  ">
 
                           <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                          <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+                          <p class="text-center  fs-5 m-0 fst-italic">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
                           <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
                           <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
                           </div>
@@ -116,7 +212,7 @@ function search(menW, womwnW,menG, frag) {
 
 
             // women watches 
-             for (i = 19; i < 23; i++) {
+            for (i = 19; i < 23; i++) {
 
                 const el = `<div class="m-3 bg-light h-auto  rounded border " style=" width: 235px;">
                     <div class="bg-image rounded-top   w-100 p-2 pt-3"
@@ -126,7 +222,7 @@ function search(menW, womwnW,menG, frag) {
 
                           <div class="d-flex flex-column justify-content-center align-items-center ">
                             <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                            <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+                            <p class="text-center  fs-5 m-0 fst-italic">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
                             <p class="text-center fs-6 m-0 fw-bold">$${data.products[i].price}</p>
                             <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
                           </div>
@@ -134,10 +230,12 @@ function search(menW, womwnW,menG, frag) {
 
                         `;
 
-                createelement(el,"womenwatches");
+                createelement(el, "womenwatches");
 
             }
 
+
+            // women shoes 
             for (i = 13; i < 18; i++) {
 
                 const el = `<div class="m-3 bg-light h-auto  rounded border " style=" width: 235px;">
@@ -148,7 +246,7 @@ function search(menW, womwnW,menG, frag) {
 
                           <div class="d-flex flex-column justify-content-center align-items-center ">
                             <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                            <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+                            <p class="text-center  fs-5 m-0 fst-italic">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
                             <p class="text-center fs-6 m-0 fw-bold">$${data.products[i].price}</p>
                             <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
                           </div>
@@ -186,7 +284,7 @@ function search(menW, womwnW,menG, frag) {
                         <div class="d-flex flex-column justify-content-center align-items-center  ">
                         <span class=" rounded-circle bg-info text-center lh-1 pt-2 fw-bold" style="margin-top: -25px; height: 50px ; width: 50px;">30% OFF </span>
                           <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                          <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+                          <p class="text-center  fs-5 m-0 fst-italic">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
                           <p class="text-center fs-6 m-0 fw-bold">$ <span class="fw-normal   text-decoration-line-through">${data.products[i].price}</span> ${(data.products[i].price - (data.products[i].price * .30))}</p>
                           <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
                           </div>
@@ -222,7 +320,7 @@ function search(menW, womwnW,menG, frag) {
                     <img class="bg-image w-25 h-100 " src="${data.products[i].thumbnail}" alt="">
                     <span class="ms-2 py-1 ">
                       <p class="fw-bold m-0 fs-5  text-wrap">${data.products[i].title}</p>
-                      <p class="fs-6 m-0 ">${data.products[i].brand}</p>
+                      <p class="fs-6 m-0 ">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
                       <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
         
                     </span>

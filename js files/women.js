@@ -13,22 +13,22 @@ document.addEventListener("DOMContentLoaded", function () {
     updateTotal()
 
 
-    search(link, fragrances)
+    search(women, beauty, fragrances)
 });
 
+var beauty = 'https://dummyjson.com/products?limit=5&select=title,price,thumbnail,rating,brand'
+var women = 'https://dummyjson.com/products?limit=19&skip=171&select=title,price,thumbnail,rating,brand'
 
-var link = 'https://dummyjson.com/products?limit=15&skip=35&select=title,price,thumbnail,rating,brand'
+var fragrances = 'https://dummyjson.com/products?limit=5&skip=5&select=title,thumbnail,rating,brand'
 
-var fragrances = 'https://dummyjson.com/products?limit=5&skip=10&select=title,thumbnail,rating,brand'
-
-function search(SRC, frag) {
-
+function search(womwnW, beautyA, frag) {
+    // Beauty 
     $.ajax({
-        url: SRC,
+        url: beautyA,
         method: 'GET',
         datatype: 'json',
         success: function (data) {
-            // TOPS
+
             for (i = 0; i < 5; i++) {
 
                 const el = `<div class="m-3 bg-light h-auto  border rounded " style=" width: 235px;">
@@ -47,61 +47,96 @@ function search(SRC, frag) {
                   
                         `;
 
-                createelement(el, "tops");
+                createelement(el, "beauty");
 
             }
 
-            // women dresses
+        }
+    })
+
+
+
+    $.ajax({
+
+        url: womwnW,
+        method: 'GET',
+        datatype: 'json',
+        success: function (data) {
+
+            // Women bags 
+            for (i = 0; i < 5; i++) {
+
+
+                const ele = `<div class="m-3 bg-light h-auto border rounded " style=" width:235px ;">
+                        <div class="bg-image rounded-top  w-100 p-2 pt-3"
+                        style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+                        <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center align-items-center  ">
+
+                          <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+                          <p class="text-center  fs-5 m-0 fst-italic">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
+                          <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
+                          <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
+                          </div>
+                      </div>
+              
+                    `;
+
+                createelement(ele, "womenbags");
+
+            }
+
+
+            // women-dresses 
             for (i = 5; i < 10; i++) {
 
 
-                const ele = `<div class="m-3 bg-light h-auto border rounded  " style=" width:235px ;">
-                            <div class="bg-image rounded-top   w-100 p-2 pt-3"
-                            style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
-                            <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center align-items-center  ">
-  
-                              <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                              <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
-                              <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
-                              <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
-                              </div>
+                const ele = `<div class="m-3 bg-light h-auto border rounded " style=" width:235px ;">
+                        <div class="bg-image rounded-top  w-100 p-2 pt-3"
+                        style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+                        <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center align-items-center  ">
+
+                          <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+                          <p class="text-center  fs-5 m-0 fst-italic">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
+                          <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
+                          <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
                           </div>
-                  
-                        `;
+                      </div>
+              
+                    `;
 
                 createelement(ele, "womenDresses");
 
             }
 
-            // women shoes
-            for (i = 10; i < 15; i++) {
-                const ele = `<div class="m-3 bg-light h-auto border rounded  " style=" width:235px ;">
-                            <div class="bg-image rounded-top   w-100 p-2 pt-3"
-                            style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
-                            <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center align-items-center  ">
-  
-                              <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                              <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
-                              <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
-                              <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
-                              </div>
+
+            // women shoes 
+            for (i = 13; i < 18; i++) {
+
+                const el = `<div class="m-3 bg-light h-auto  rounded border " style=" width: 235px;">
+                    <div class="bg-image rounded-top   w-100 p-2 pt-3"
+                    style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+                    <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                    </div>
+
+                          <div class="d-flex flex-column justify-content-center align-items-center ">
+                            <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+                            <p class="text-center  fs-5 m-0 fst-italic">${(data.products[i].brand) ? data.products[i].brand : ""}</p>
+                            <p class="text-center fs-6 m-0 fw-bold">$${data.products[i].price}</p>
+                            <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
                           </div>
-                  
+                        </div>
+
                         `;
 
-                createelement(ele, "womenshoes");
+                createelement(el, "womenshoes");
 
             }
-
-
-        },
-        error: function (error) {
-            console.log("error is = " + error)
         }
+
 
     })
 

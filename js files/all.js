@@ -16,28 +16,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     }
-    search(link, decoration, jewelleries, watches);
+    search(groceries,vehicles,bikes, smartPhone,furniture, newArrived);
 });
+
+
+var newArrived = 'https://dummyjson.com/products?limit=10&skip=5&select=title,price,thumbnail,rating,brand'
+
+var furniture = 'https://dummyjson.com/products?limit=5&skip=42&select=title,price,thumbnail,rating,brand'
+
 
 var link =
     "https://dummyjson.com/products?limit=10&skip=10&select=title,price,thumbnail,rating,brand";
 
-var decoration =
-    "https://dummyjson.com/products?limit=5&skip=25&select=title,price,thumbnail,rating,brand";
+var smartPhone =
+    "https://dummyjson.com/products?limit=16&skip=120&select=title,price,thumbnail,rating,brand";
 
-var jewelleries =
-    "https://dummyjson.com/products?limit=10&skip=75&select=title,price,thumbnail,rating,brand";
+var vehicles =
+    "https://dummyjson.com/products?limit=5&skip=166&select=title,price,thumbnail,rating,brand";
 
-var watches =
-    "https://dummyjson.com/products?limit=15&skip=60&select=title,price,thumbnail,rating,brand";
+    var groceries = 'https://dummyjson.com/products?limit=27&skip=15&select=title,price,thumbnail,rating,brand'
+    var bikes = 'https://dummyjson.com/products?limit=5&skip=112&select=title,price,thumbnail,rating,brand'
 
-function search(SRC, dec, jevel, watch) {
+function search(SRC,veh,bike,phone, fur, newly) {
+
+
+
     // NEW ARRIVALS
     $.ajax({
-        url: SRC,
+
+        url: newly,
         method: "GET",
         datatype: "json",
         success: function (data) {
+
+            // Fragrances 
             for (i = 0; i < 5; i++) {
                 const el = `<div class="m-3  bg-light   rounded border  " style=" width: 235px; height:95%">
                                     <div class="bg-image rounded-top  w-100 p-2 pt-3"
@@ -56,7 +68,115 @@ function search(SRC, dec, jevel, watch) {
                 createelement(el, "fragrances");
             }
 
+            // furniture 
             for (i = 5; i < 10; i++) {
+                const el = `<div class="m-3  bg-light   rounded border  " style=" width: 235px; height:95%">
+                                    <div class="bg-image rounded-top  w-100 p-2 pt-3"
+                                        style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+                                         <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                                    </div>
+                            
+                                    <div class="d-flex flex-column justify-content-center align-items-center ">
+                                        <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+                                        <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+                                        <p class="text-center fs-6 m-0 fw-bold">$${data.products[i].price}</p>
+                                        <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
+                                    </div>
+                                </div> `;
+
+                createelement(el, "furniture");
+            }
+        }
+    })
+
+
+ // TOP OFFERS
+ $.ajax({
+// HOME DECORATION
+    url: fur,
+    method: "GET",
+    datatype: "json",
+    success: function (data) {
+        
+        for (i = 0; i < 5; i++) {
+            const el = `<div class="m-2 bg-light h-auto border rounded " style=" width:235px ;">
+                <div class="bg-image rounded-top   w-100 p-2 pt-3"
+                style="height: 250px; background-image:url('${data.products[i].thumbnail
+                }')"> 
+                    <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                    </div>
+                <div class="d-flex flex-column justify-content-center align-items-center  ">
+
+                  <span class=" rounded-circle bg-info text-center lh-1 pt-2 fw-bold " style="margin-top: -25px; height: 50px ; width: 50px;">70% OFF </span>
+                  <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title
+                }</a>
+                  <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand
+                }</p>
+                  <p class="text-center fs-6 fw-bold m-0">$ <span class="fw-normal   text-decoration-line-through">${data.products[i].price
+                }</span> ${data.products[i].price - data.products[i].price * 0.7
+                }</p>
+                  <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating
+                }</span>
+                  </div>
+              </div>
+              
+                    `;
+
+            createelement(el, "decoration");
+        }
+
+       
+    }
+})
+
+
+// bikes
+
+$.ajax({
+
+    url: bike,
+    method: "GET",
+    datatype: "json",
+    success: function (data) {
+
+
+        for (i = 0; i < 5; i++) {
+            const ele = `<div class="m-3 bg-light h-auto rounded border  " style=" width:235px ;">
+                        <div class="bg-image rounded-top  w-100 p-2 pt-3"
+                        style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+                        <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center align-items-center  ">
+
+                          <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+                          <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+                          <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
+                          <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
+                          </div>
+                      </div>
+              
+                    `;
+
+            createelement(ele, "motorcycles");
+        }
+
+    },
+    error: function (error) {
+        console.log("error is = " + error);
+    },
+});
+
+
+// groceries
+    $.ajax({
+
+        url: SRC,
+        method: "GET",
+        datatype: "json",
+        success: function (data) {
+
+
+            for (i = 0; i < 27; i++) {
                 const ele = `<div class="m-3 bg-light h-auto rounded border  " style=" width:235px ;">
                             <div class="bg-image rounded-top  w-100 p-2 pt-3"
                             style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
@@ -73,7 +193,7 @@ function search(SRC, dec, jevel, watch) {
                   
                         `;
 
-                createelement(ele, "skincare");
+                createelement(ele, "groceries-items");
             }
 
         },
@@ -82,29 +202,28 @@ function search(SRC, dec, jevel, watch) {
         },
     });
 
-    // TOP OFFERS DECORATION
+// Vehicles
     $.ajax({
-        url: dec,
+        url: veh,
         method: "GET",
         datatype: "json",
         success: function (data) {
+
             for (i = 0; i < 5; i++) {
-                const el = `<div class="m-2 bg-light h-auto border rounded " style=" width:235px ;">
-                    <div class="bg-image rounded-top   w-100 p-2 pt-3"
+                const el = `<div class="m-2 bg-light h-auto rounded  border" style=" width:235px ;">
+                    <div class="bg-image rounded-top  w-100 p-2 pt-3"
                     style="height: 250px; background-image:url('${data.products[i].thumbnail
                     }')"> 
                         <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
                         </div>
                     <div class="d-flex flex-column justify-content-center align-items-center  ">
 
-                      <span class=" rounded-circle bg-info text-center lh-1 pt-2 fw-bold " style="margin-top: -25px; height: 50px ; width: 50px;">70% OFF </span>
+                      <span class=" rounded-circle bg-info text-center lh-1 pt-2 fw-bold " style="margin-top: -25px; height: 50px ; width: 50px;">30% OFF </span>
                       <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title
                     }</a>
                       <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand
                     }</p>
-                      <p class="text-center fs-6 fw-bold m-0">$ <span class="fw-normal   text-decoration-line-through">${data.products[i].price
-                    }</span> ${data.products[i].price - data.products[i].price * 0.7
-                    }</p>
+                      <p class="text-center fs-6 fw-bold m-0">$ <span class="fw-normal   text-decoration-line-through">${data.products[i].price}</span> ${data.products[i].price - data.products[i].price * 0.3}</p>
                       <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating
                     }</span>
                       </div>
@@ -112,8 +231,10 @@ function search(SRC, dec, jevel, watch) {
                   
                         `;
 
-                createelement(el, "decoration");
+                createelement(el, "vehicles");
             }
+
+           
 
         },
         error: function (error) {
@@ -121,15 +242,15 @@ function search(SRC, dec, jevel, watch) {
         },
     });
 
-    // TOP OFFERS jewellery & glasses
+
+    // phones
     $.ajax({
-        url: jevel,
+        url: phone,
         method: "GET",
         datatype: "json",
         success: function (data) {
 
-            // Jewellery
-            for (i = 0; i < 5; i++) {
+            for (i = 0; i < 16; i++) {
                 const el = `<div class="m-2 bg-light h-auto rounded  border" style=" width:235px ;">
                     <div class="bg-image rounded-top  w-100 p-2 pt-3"
                     style="height: 250px; background-image:url('${data.products[i].thumbnail
@@ -143,9 +264,7 @@ function search(SRC, dec, jevel, watch) {
                     }</a>
                       <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand
                     }</p>
-                      <p class="text-center fs-6 fw-bold m-0">$ <span class="fw-normal   text-decoration-line-through">${data.products[i].price
-                    }</span> ${data.products[i].price - data.products[i].price * 0.25
-                    }</p>
+                      <p class="text-center fs-6 fw-bold m-0">$ <span class="fw-normal   text-decoration-line-through">${data.products[i].price}</span> ${data.products[i].price - data.products[i].price * 0.25}</p>
                       <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating
                     }</span>
                       </div>
@@ -153,116 +272,94 @@ function search(SRC, dec, jevel, watch) {
                   
                         `;
 
-                createelement(el, "jewellery");
+                createelement(el, "phones");
             }
 
-            // Glasses
-            for (i = 5; i < 10; i++) {
-                const el = `<div class="m-2 bg-light h-auto border  rounded " style=" width:235px ;">
-                    <div class="bg-image rounded-top  w-100 p-2 pt-3"
-                    style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
-                        <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
-                        </div>
-                    <div class="d-flex flex-column justify-content-center align-items-center  ">
-
-                      <span class=" rounded-circle bg-info text-center lh-1 pt-2 fw-bold " style="margin-top: -25px; height: 50px ; width: 50px;">30% OFF </span>
-                      <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title
-                    }</a>
-                      <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand
-                    }</p>
-                      <p class="text-center fs-6 fw-bold m-0">$ <span class="fw-normal   text-decoration-line-through">${data.products[i].price
-                    }</span> ${data.products[i].price - data.products[i].price * 0.3
-                    }</p>
-                      <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating
-                    }</span>
-                      </div>
-                  </div>
-                  
-                        `;
-
-                createelement(el, "glasses");
-            }
+           
 
         },
         error: function (error) {
             console.log("error is = " + error);
         },
     });
+
+
+
 
     // WATCHES
-    $.ajax({
-        url: watch,
-        method: "GET",
-        datatype: "json",
-        success: function (data) {
+    // $.ajax({
+    //     url: watch,
+    //     method: "GET",
+    //     datatype: "json",
+    //     success: function (data) {
 
-            // Men Watches
-            for (i = 0; i < 5; i++) {
-                const el = `<div class="m-3 bg-light h-auto border rounded  " style=" width: 235px;">
-                    <div class="bg-image rounded-top   w-100 p-2 pt-3"
-                    style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
-                    <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
-                    </div>
+    //         // Men Watches
+    //         for (i = 0; i < 5; i++) {
+    //             const el = `<div class="m-3 bg-light h-auto border rounded  " style=" width: 235px;">
+    //                 <div class="bg-image rounded-top   w-100 p-2 pt-3"
+    //                 style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+    //                 <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+    //                 </div>
                             
-                          <div class="d-flex flex-column justify-content-center align-items-center ">
-                            <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                            <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
-                            <p class="text-center fs-6 m-0 fw-bold">$${data.products[i].price}</p>
-                            <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
-                          </div>
-                        </div>
+    //                       <div class="d-flex flex-column justify-content-center align-items-center ">
+    //                         <a class="btn p-0 m-0 fs-5 fw-bold text-center " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+    //                         <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+    //                         <p class="text-center fs-6 m-0 fw-bold">$${data.products[i].price}</p>
+    //                         <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
+    //                       </div>
+    //                     </div>
                   
-                        `;
+    //                     `;
 
-                createelement(el, "menWatches");
-            }
-            // women watches
-            for (i = 5; i < 10; i++) {
-                const ele = `<div class="m-3 bg-light h-auto  border rounded " style=" width:235px ;">
-                            <div class="bg-image rounded-top  w-100 p-2 pt-3"
-                            style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
-                            <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center align-items-center  ">
+    //             createelement(el, "menWatches");
+    //         }
+    //         // women watches
+    //         for (i = 5; i < 10; i++) {
+    //             const ele = `<div class="m-3 bg-light h-auto  border rounded " style=" width:235px ;">
+    //                         <div class="bg-image rounded-top  w-100 p-2 pt-3"
+    //                         style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+    //                         <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+    //                         </div>
+    //                         <div class="d-flex flex-column justify-content-center align-items-center  ">
   
-                              <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                              <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
-                              <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
-                              <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
-                              </div>
-                          </div>
+    //                           <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+    //                           <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+    //                           <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
+    //                           <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
+    //                           </div>
+    //                       </div>
                   
-                        `;
+    //                     `;
 
-                createelement(ele, "womenWatches");
-            }
+    //             createelement(ele, "womenWatches");
+    //         }
 
-            // women bags
-            for (i = 10; i < 15; i++) {
-                const ele = `<div class="m-3 bg-light h-auto border rounded " style=" width:235px ;">
-                            <div class="bg-image rounded-top  w-100 p-2 pt-3"
-                            style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
-                            <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center align-items-center  ">
+    //         // women bags
+    //         for (i = 10; i < 15; i++) {
+    //             const ele = `<div class="m-3 bg-light h-auto border rounded " style=" width:235px ;">
+    //                         <div class="bg-image rounded-top  w-100 p-2 pt-3"
+    //                         style="height: 250px; background-image:url('${data.products[i].thumbnail}')"> 
+    //                         <a class="bg-info bg-opacity-50 btn py-1 m-0 px-2 rounded-pill  add-to-cart"    data-product-id='${data.products[i].id}'> <i class="fas fa-cart-flatbed"></i></a>
+    //                         </div>
+    //                         <div class="d-flex flex-column justify-content-center align-items-center  ">
   
-                              <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
-                              <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
-                              <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
-                              <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
-                              </div>
-                          </div>
+    //                           <a class="btn p-0 m-0 fs-5 fw-bold  " href="" style="width:220px; min-height:62px">${data.products[i].title}</a>
+    //                           <p class="text-center  fs-5 m-0 fst-italic">${data.products[i].brand}</p>
+    //                           <p class="text-center fs-6 fw-bold m-0">$ ${data.products[i].price}</p>
+    //                           <span class="fw-bold"><i class="fas m-0 px-2 fa-star" style="color: rgb(248, 252, 52)"></i>${data.products[i].rating}</span>
+    //                           </div>
+    //                       </div>
                   
-                        `;
+    //                     `;
 
-                createelement(ele, "womenBags");
-            }
+    //             createelement(ele, "womenBags");
+    //         }
 
-        },
-        error: function (error) {
-            console.log("error is = " + error);
-        },
-    });
+    //     },
+    //     error: function (error) {
+    //         console.log("error is = " + error);
+    //     },
+    // });
 }
 
 
